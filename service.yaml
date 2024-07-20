@@ -1,3 +1,7 @@
+#after pods are in running stage I used minikube ip like http://minikubeip/30001
+#if you are using k8 cluster can use node ip 
+
+
 apiVersion: v1
 kind: Service
 metadata:
