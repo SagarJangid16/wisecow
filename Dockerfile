@@ -1,15 +1,11 @@
-# Use an official Ubuntu image as a parent image
-FROM ubuntu:latest
+# Use the pre-built image as the base
+FROM larv/fortunes-cowsay
 
-# Install prerequisites
-RUN apt-get update && apt-get install -y fortune-mod cowsay
+# Copy your script into the container
+COPY wisecow.sh /wisecow.sh
 
-# Copy the wisecow script to the container
-COPY wisecow.sh /usr/local/bin/wisecow.sh
-RUN chmod +x /usr/local/bin/wisecow.sh
+# Make your script executable
+RUN chmod +x /wisecow.sh
 
-# Expose the port the app runs on
-EXPOSE 4499
-
-# Run the wisecow script
-CMD ["/usr/local/bin/wisecow.sh"]
+# Set the default command to run your script
+CMD ["/wisecow.sh"]
